@@ -1,32 +1,53 @@
 const posts = [
 {
 title:"Understanding Async JavaScript",
-summary:"Callbacks, promises and async/await explained clearly.",
 tag:"JavaScript",
-content:"Full article about async JavaScript..."
+content:`
+# Async JavaScript Guide
+
+Here is a code example:
+
+\`\`\`js
+async function loadData(){
+ const res = await fetch("/api");
+ return res.json();
+}
+\`\`\`
+
+Async/await makes async code readable.
+`
 },
+
 {
-title:"CSS Layouts Every Developer Should Know",
-summary:"Flexbox, Grid and responsive design patterns.",
+title:"CSS Grid Layout Tutorial",
 tag:"CSS",
-content:"Full article about CSS layouts..."
+content:`
+# CSS Grid Example
+
+\`\`\`css
+.container{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+}
+\`\`\`
+`
 },
+
 {
-title:"Git Workflow Best Practices",
-summary:"How teams manage branches and releases.",
+title:"Git Branch Strategy",
 tag:"Git",
-content:"Full article about Git workflows..."
+content:`# Git Workflow Tips`
 },
+
 {
-title:"Build Faster Websites with Performance Optimization",
-summary:"Learn how to improve load time and UX.",
+title:"Clean Code Rules",
+tag:"Best Practice",
+content:`# Write maintainable code`
+},
+
+{
+title:"Web Performance Tips",
 tag:"Performance",
-content:"Full article about performance..."
-},
-{
-title:"Clean Code Principles for Developers",
-summary:"Write maintainable and scalable code.",
-tag:"Best Practices",
-content:"Full article about clean code..."
+content:`# Optimize images and scripts`
 }
 ];
