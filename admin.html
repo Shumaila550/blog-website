@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<input id="title" placeholder="Post Title">
+
+<div contenteditable="true" id="editor" class="editor">
+Write your blog post here...
+</div>
+
+<button onclick="publish()">Publish Post</button>
+<a href="index.html">Back to site</a>
+
+<script src="data.js"></script>
+
+<script>
+if(localStorage.getItem("loggedIn")!=="true"){
+location.href="login.html";
+}
+
+function publish(){
+let posts=JSON.parse(localStorage.getItem("posts"));
+
+posts.push({
+title:document.getElementById("title").value,
+content:document.getElementById("editor").innerHTML,
+comments:[]
+});
+
+localStorage.setItem("posts",JSON.stringify(posts));
+alert("Post published!");
+}
+</script>
+
+</body>
+</html>
