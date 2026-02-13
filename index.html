@@ -3,20 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Blog</title>
+<title>DevNotes Blog</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="nav">
-<h2>My Blog</h2>
-<button onclick="toggleTheme()">🌙</button>
-<a href="admin.html">Admin</a>
+<header class="navbar">
+  <h2>DevNotes</h2>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Articles</a>
+    <a href="#">About</a>
+  </nav>
 </header>
 
-<section class="container" id="posts"></section>
+<section class="hero">
+  <h1>Developer Insights & Tutorials</h1>
+  <p>Clean articles on web development, design and coding practices.</p>
+</section>
+
+<main class="blog-grid" id="posts"></main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div>
+      <h3>DevNotes</h3>
+      <p>Sharing modern coding practices and development insights.</p>
+    </div>
+
+    <div>
+      <h4>Resources</h4>
+      <p>Docs</p>
+      <p>Guides</p>
+      <p>Community</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Email: hello@devnotes.com</p>
+      <p>GitHub</p>
+      <p>LinkedIn</p>
+    </div>
+  </div>
+
+  <p class="copyright">© 2026 DevNotes Blog</p>
+</footer>
 
 <script src="posts.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
