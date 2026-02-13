@@ -15,4 +15,11 @@ fetch('posts.json')
     });
 
     document.getElementById("posts").innerHTML = html;
+
+    // animation on load
+    setTimeout(()=>{
+        document.querySelectorAll(".post").forEach(card=>{
+            card.classList.add("show");
+        });
+    },200);
 });
