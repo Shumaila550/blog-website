@@ -277,3 +277,11 @@ footer{
     .hero{padding:50px 15px}
     .container{gap:20px}
 }
+/* COMMENTS STYLE */
+#comments .card{
+    margin-bottom:15px;
+}
+
+#comments strong{
+    color:#38bdf8;
+}
