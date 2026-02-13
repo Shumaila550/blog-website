@@ -1,0 +1,12 @@
+[
+  {
+    "title": "My First Blog Post",
+    "summary": "This is my first blog post summary.",
+    "content": "This is the full content of my first blog post."
+  },
+  {
+    "title": "Why I Love Coding",
+    "summary": "Coding helps solve real problems.",
+    "content": "Coding allows us to build apps, websites, and automation tools that help people."
+  }
+]
