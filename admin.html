@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Admin Dashboard</title>
+<title>Write Post</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>Admin Dashboard</h1>
-
-<input id="title" placeholder="Post Title">
-
-<div contenteditable="true" id="editor" class="editor">
-Write your blog post here...
+<div class="form-box">
+<h2>Write Blog Post</h2>
+<input id="title" placeholder="Post title">
+<textarea id="content" placeholder="Write your article..."></textarea>
+<button onclick="publish()">Publish</button>
 </div>
 
-<button onclick="publish()">Publish Post</button>
-<a href="index.html">Back to site</a>
-
-<script src="data.js"></script>
-
 <script>
-if(localStorage.getItem("loggedIn")!=="true"){
-location.href="login.html";
-}
-
 function publish(){
-let posts=JSON.parse(localStorage.getItem("posts"));
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
 posts.push({
-title:document.getElementById("title").value,
-content:document.getElementById("editor").innerHTML,
-comments:[]
+title:title.value,
+excerpt:content.value.substring(0,120)+"...",
+content:content.value,
+date:new Date().toDateString(),
+author:"Admin"
 });
 
-localStorage.setItem("posts",JSON.stringify(posts));
+localStorage.setItem("posts", JSON.stringify(posts));
 alert("Post published!");
 }
 </script>
 
 </body>
 </html>
+
