@@ -41,6 +41,54 @@ document.getElementById("title").innerText = post.title;
 document.getElementById("meta").innerText = post.date + " • " + post.author;
 document.getElementById("content").innerHTML = post.content;
 </script>
+<script>
+let postId = id;   // uses same id from article script
+
+function loadComments(){
+    let all = JSON.parse(localStorage.getItem("comments")) || {};
+    let postComments = all[postId] || [];
+
+    let html="";
+    postComments.forEach(c=>{
+        html+=`
+        <div class="card">
+            <strong>${c.name}</strong>
+            <div class="meta">${c.date}</div>
+            <p>${c.text}</p>
+        </div>`;
+    });
+
+    document.getElementById("comments").innerHTML = html || "<p>No comments yet.</p>";
+}
+
+function addComment(){
+    let name = cname.value.trim();
+    let text = cmsg.value.trim();
+
+    if(!name || !text){
+        alert("Write name & comment");
+        return;
+    }
+
+    let all = JSON.parse(localStorage.getItem("comments")) || {};
+    if(!all[postId]) all[postId]=[];
+
+    all[postId].push({
+        name:name,
+        text:text,
+        date:new Date().toLocaleString()
+    });
+
+    localStorage.setItem("comments", JSON.stringify(all));
+
+    cname.value="";
+    cmsg.value="";
+
+    loadComments();
+}
+
+loadComments();
+</script>
 
 </body>
 </html>
