@@ -5,9 +5,10 @@
 <title>Article</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
+<div class="blog-grid">
 <h1 id="title"></h1>
 <p id="content"></p>
 <a href="index.html">← Back</a>
@@ -16,9 +17,9 @@
 <script src="posts.js"></script>
 <script>
 const id=new URLSearchParams(window.location.search).get("id");
-const posts=JSON.parse(localStorage.getItem("posts"));
 document.getElementById("title").innerText=posts[id].title;
 document.getElementById("content").innerText=posts[id].content;
 </script>
+
 </body>
 </html>
