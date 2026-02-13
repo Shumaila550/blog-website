@@ -9,11 +9,8 @@
 
 <body>
 
-<header>
-    <h1 id="title"></h1>
-</header>
-
 <div class="container">
+    <h1 id="title"></h1>
     <p id="content"></p>
 </div>
 
@@ -24,9 +21,8 @@ const id = urlParams.get('id');
 fetch('posts.json')
 .then(res => res.json())
 .then(posts => {
-    const post = posts[id];
-    document.getElementById("title").innerText = post.title;
-    document.getElementById("content").innerText = post.content;
+    document.getElementById("title").innerText = posts[id].title;
+    document.getElementById("content").innerText = posts[id].content;
 });
 </script>
 
