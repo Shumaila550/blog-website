@@ -4,21 +4,28 @@
 <meta charset="UTF-8">
 <title>Article</title>
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
 
-<div class="blog-grid">
+<div class="article">
 <h1 id="title"></h1>
-<p id="content"></p>
-<a href="index.html">← Back</a>
+<div id="content"></div>
 </div>
 
 <script src="posts.js"></script>
+
 <script>
 const id=new URLSearchParams(window.location.search).get("id");
 document.getElementById("title").innerText=posts[id].title;
-document.getElementById("content").innerText=posts[id].content;
+
+const html=marked.parse(posts[id].content);
+document.getElementById("content").innerHTML=html;
+
+document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
 </script>
 
 </body>
