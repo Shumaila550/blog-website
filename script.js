@@ -1,18 +1,13 @@
-fetch('posts.json')
-.then(res => res.json())
-.then(posts => {
+// Scroll animation for cards
+const cards = document.querySelectorAll(".card");
 
-    let html = "";
+window.addEventListener("scroll",()=>{
+  const trigger = window.innerHeight * 0.85;
 
-    posts.forEach((post, index) => {
-        html += `
-        <div class="post">
-            <h2>${post.title}</h2>
-            <p>${post.summary}</p>
-            <a href="post.html?id=${index}">Read More</a>
-        </div>
-        `;
-    });
-
-    document.getElementById("posts").innerHTML = html;
+  cards.forEach(card=>{
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){
+      card.classList.add("show");
+    }
+  });
 });
