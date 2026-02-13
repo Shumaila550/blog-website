@@ -2,30 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Article</title>
+<title>DevNotes Article</title>
 <link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
 
+<header class="nav">
+<div class="logo">DevNotes</div>
+<a href="index.html">Home</a>
+</header>
+
 <div class="article">
 <h1 id="title"></h1>
+<div class="meta" id="meta"></div>
 <div id="content"></div>
 </div>
 
-<script src="posts.js"></script>
+<script src="data.js"></script>
 
 <script>
-const id=new URLSearchParams(window.location.search).get("id");
-document.getElementById("title").innerText=posts[id].title;
+let posts = JSON.parse(localStorage.getItem("posts")) || blogPosts;
+let id = new URLSearchParams(window.location.search).get("id");
+let post = posts[id];
 
-const html=marked.parse(posts[id].content);
-document.getElementById("content").innerHTML=html;
-
-document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+document.getElementById("title").innerText = post.title;
+document.getElementById("meta").innerText = post.date + " • " + post.author;
+document.getElementById("content").innerHTML = post.content;
 </script>
 
 </body>
